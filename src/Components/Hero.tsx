@@ -98,6 +98,7 @@ const Hero: React.FC = () => {
             src={slide.image}
             alt={slide.title}
             className="w-full h-full object-cover"
+            loading="lazy"
           />
 
           {/* Arrows */}
