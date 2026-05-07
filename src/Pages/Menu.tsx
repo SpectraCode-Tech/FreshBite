@@ -11,6 +11,7 @@ import fish from "../assets/fish.jpeg";
 import noodles from "../assets/noodles.jpeg";
 import boiledEgg from "../assets/egg.jpeg";
 import spag from "../assets/spag.jpeg";
+import pepsi from "../assets/pepsi.jpeg";
 
 const Menu = () => {
 
@@ -86,11 +87,11 @@ const Menu = () => {
       category: "Side"
     },
     {
-      image:`${plantain}`,
-      name: "Product 2",
+      image:`${pepsi}`,
+      name: "Bottled Pepsi Cola",
       description: "Description for Product 2",
-      price: "29.99",
-      category: "Category 2"
+      price: "600.00",
+      category: "Beverage"
     },
   ];
     const { addToCart } = useCart();

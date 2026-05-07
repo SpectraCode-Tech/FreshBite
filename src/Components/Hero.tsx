@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
           };
 
   return (
-    <div className="relative w-full h-screen sm:h-[85dvh] overflow-hidden">
+    <div className="relative w-full h-screen sm:h-[85svh] overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
