@@ -9,7 +9,7 @@ const Cart = () => {
   const totalItems = cart.length;
 
   const openOrder = () => {
-    navigate("/order");
+    navigate("/order-now");
   };
 
   return (

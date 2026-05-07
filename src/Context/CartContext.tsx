@@ -46,7 +46,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   });
 
-  // ✅ persist with timestamp
+
   useEffect(() => {
     const data: StoredCart = {
       cart,

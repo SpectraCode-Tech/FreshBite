@@ -26,12 +26,14 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300  ">
+            <a href="#about" className="hover:text-gray-300  ">
               About
             </a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="#contact" className="hover:text-gray-300">
+              Contact
+            </a>
           </li>
           <li className="hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
             <Link to="/menu" className="hover:text-gray-300">
@@ -39,6 +41,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+
         {/* Mobile menu button */}
         <button className="md:hidden text-white" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? (
@@ -51,28 +54,29 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden fixed w-full left-0 bg-black text-white py-2 px-5 ${isMobileMenuOpen ? "h-max opacity-100" : "h-0 overflow-hidden opacity-0"} transition-all duration-300`}
+        className={`md:hidden fixed w-full left-0 bg-black text-white py-2 px-5 ${isMobileMenuOpen ? "h-full opacity-100" : "h-0 overflow-hidden opacity-0"} transition-all duration-300`}
       >
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 space-y-5 items-center justify-center h-4/5 text-2xl">
           <li>
             <a href="#" className="hover:text-gray-300">
               Home
             </a>
           </li>
+
           <li>
-            <a href="#" className="hover:text-gray-300">
-              Menu
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-gray-300">
+            <a href="#about" className="hover:text-gray-300">
               About
             </a>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <a href="#contact" className="hover:text-gray-300">
               Contact
             </a>
+          </li>
+          <li className="fixed text-sm bottom-3 self-start hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
+            <Link to="/menu" className="hover:text-gray-300">
+              Our Menu
+            </Link>
           </li>
         </ul>
       </div>
