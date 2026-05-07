@@ -56,7 +56,7 @@ const Card = ({
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
+            <h3 className=" text-lg sm:text-2xl font-bold text-gray-900">{name}</h3>
 
             <p className="text-gray-500 text-sm mt-2 leading-6">
               {description}
@@ -72,18 +72,18 @@ const Card = ({
           <span>
             <button
               onClick={handleAddToCart}
-              className="w-full bg-orange-600 hover:bg-orange-700 active:bg-orange-800 hover:text-gray-300 text-white py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
+              className="w-full text-xs sm:text-sm bg-orange-600 hover:bg-orange-700 active:bg-orange-800 hover:text-gray-300 text-white py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
             >
               Order Now
             </button>
           </span>
 
-          <span className="flex items-center justify-center text-black gap-2 py-2 px-4 rounded-full">
-            <button className="qty-btn" onClick={decrement}>
+          <span className="flex items-center justify-center text-black gap-2 py-2 rounded-full">
+            <button className="qty-btn px-4 py-2" onClick={decrement}>
               -
             </button>
             <p className="text-lg font-bold">{quantity}</p>
-            <button className="qty-btn" onClick={increment}>
+            <button className="qty-btn px-4 py-2" onClick={increment}>
               +
             </button>
           </span>
