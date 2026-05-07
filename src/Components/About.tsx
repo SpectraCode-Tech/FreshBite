@@ -1,4 +1,5 @@
 import aboutImage from "../assets/about.jpeg";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -14,9 +15,7 @@ const About = () => {
         </h1>
       </div>
 
-      
       <div className="flex flex-col lg:flex-row items-center gap-14">
-       
         <div className="w-full lg:w-1/2">
           <h2 className="text-2xl md:text-3xl font-semibold leading-snug mb-6">
             Authentic Nigerian Flavors,
@@ -38,14 +37,16 @@ const About = () => {
             home, we’re committed to delivering quality, flavor, and excellent
             service in every experience.
           </p>
-
-          
-          <button className="mt-8 bg-orange-600 hover:bg-orange-700 text-white px-7 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
-            Learn More
-          </button>
+          <Link to="/About">
+            <button
+              
+              className="mt-8 bg-orange-600 hover:bg-orange-700 text-white px-7 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
+            >
+              Learn More
+            </button>
+          </Link>
         </div>
 
-        
         <div className="w-full lg:w-1/2">
           <img
             src={aboutImage}
