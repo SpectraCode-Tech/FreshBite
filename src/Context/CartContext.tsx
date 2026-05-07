@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 export type CartItem = {
@@ -6,6 +6,11 @@ export type CartItem = {
   name: string;
   price: string;
   quantity: number;
+};
+
+type StoredCart = {
+  cart: CartItem[];
+  timestamp: number;
 };
 
 type CartContextType = {
@@ -17,20 +22,49 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+const EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours in ms
+
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const saved = localStorage.getItem("cartData");
+
+    if (!saved) return [];
+
+    try {
+      const parsed: StoredCart = JSON.parse(saved);
+
+      const isExpired = Date.now() - parsed.timestamp > EXPIRY_TIME;
+
+      if (isExpired) {
+        localStorage.removeItem("cartData");
+        return [];
+      }
+
+      return parsed.cart;
+    } catch {
+      return [];
+    }
+  });
+
+  // ✅ persist with timestamp
+  useEffect(() => {
+    const data: StoredCart = {
+      cart,
+      timestamp: Date.now(),
+    };
+
+    localStorage.setItem("cartData", JSON.stringify(data));
+  }, [cart]);
 
   const addToCart = (item: CartItem) => {
     setCart((prev) => {
       const existingIndex = prev.findIndex((p) => p.name === item.name);
 
-      
       if (existingIndex !== -1) {
         const updated = [...prev];
         updated[existingIndex].quantity += item.quantity;
         return updated;
       }
-
 
       return [...prev, item];
     });
@@ -40,7 +74,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCart((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cartData");
+  };
 
   return (
     <CartContext.Provider
