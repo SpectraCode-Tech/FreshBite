@@ -103,18 +103,14 @@ const Hero: React.FC = () => {
           {/* Arrows */}
           <button
             onClick={prevSlide}
-            className="flex items-center justify-center h-10 w-10 absolute right-20 top-10 sm:left-5 sm:top-1/2 -translate-y-1/2 z-20 
-             bg-white/10 hover:bg-white/20 backdrop-blur-sm 
-             text-white rounded-full cursor-pointer transition-all duration-300"
+            className="arrow-btn right-20 top-10 sm:left-5 sm:top-1/2"
           >
             ‹
           </button>
 
           <button
             onClick={nextSlide}
-            className=" flex items-center justify-center absolute h-10 w-10 right-5 top-10 sm:top-1/2 -translate-y-1/2 z-20 
-             bg-white/10 hover:bg-white/20 backdrop-blur-sm 
-             text-white rounded-full cursor-pointer transition-all duration-300"
+            className="arrow-btn right-5 top-10 sm:top-1/2"
           >
             ›
           </button>

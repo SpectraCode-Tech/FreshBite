@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import logo from '../assets/logov1.png'
 import { FiMenu, FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ const Navbar = () => {
         </div>
         <ul className="gap-4 items-center ml-4 hidden md:flex">
           <li><a href="#" className="hover:text-gray-300">Home</a></li>
-          <li><a href="#" className="hover:text-gray-300">Menu</a></li>
+          <li><Link to="/menu" className="hover:text-gray-300">Menu</Link></li>
           <li><a href="#" className="hover:text-gray-300  ">About</a></li>
           <li><a href="#" className="hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">Contact</a></li>
         </ul>
