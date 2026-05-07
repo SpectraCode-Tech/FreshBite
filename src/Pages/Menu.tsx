@@ -1,8 +1,10 @@
 import Card from "../Components/Card";
 import Navbar from "../Components/Navbar";
+import { useCart } from "../Context/CartContext";
 import cardImg from "../assets/slide1.jpeg";
 
 const Menu = () => {
+    const { addToCart } = useCart();
   return (
     <>
       <Navbar />
@@ -13,167 +15,7 @@ const Menu = () => {
           description="Product description goes here."
           price="$19.99"
           category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
-        />
-        <Card
-          image={cardImg}
-          name="Product Name"
-          description="Product description goes here."
-          price="$19.99"
-          category="Category"
+          addToCart={addToCart}
         />
       </div>
     </>
