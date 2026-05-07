@@ -19,28 +19,11 @@ const Navbar = () => {
           </h1>
         </div>
         <ul className="gap-4 items-center ml-4 hidden md:flex">
-          <li>
-            <a href="#" className="hover:text-gray-300">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-gray-300">
-              Menu
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-gray-300  ">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
-              Contact
-            </a>
-          </li>
+          <li><a href="#" className="hover:text-gray-300">Home</a></li>
+          <li><a href="#" className="hover:text-gray-300">Menu</a></li>
+          <li><a href="#" className="hover:text-gray-300  ">About</a></li>
+          <li><a href="#" className="hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">Contact</a></li>
         </ul>
-
         {/* Mobile menu button */}
         <button className="md:hidden text-white" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? (

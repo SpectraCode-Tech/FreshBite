@@ -125,8 +125,8 @@ const Hero: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               {renderTitle(slide.title)}
             </h1>
-            <p className="text-lg md:text-xl opacity-80">{slide.subtitle}</p>
-            <p className="text-md md:text-lg opacity-70 mt-2">
+            <p className="text-lg md:text-xl">{slide.subtitle}</p>
+            <p className="text-md md:text-lg mt-2">
               {slide.tagline}
             </p>
 
