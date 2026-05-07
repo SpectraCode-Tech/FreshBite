@@ -3,9 +3,10 @@ import Navbar from "../Components/Navbar";
 import Cart from "../Components/cart";
 import { useCart } from "../Context/CartContext";
 import jollof from "../assets/jollof.jpeg";
+import jfRice from "../assets/j&fRice.jpeg";
 import friedRice from "../assets/friedrice.jpeg";
 import plantain from "../assets/plantain.jpeg";
-import turkey from "../assets/turkey.jpeg";
+import turkey from "../assets/Turkey.jpeg";
 import chicken from "../assets/chicken.jpeg";
 import fish from "../assets/fish.jpeg";
 import noodles from "../assets/noodles.jpeg";
@@ -31,7 +32,7 @@ const Menu = () => {
       category: "Main Course"
     },
     {
-      image: `${jollof}`,
+      image: `${jfRice}`,
       name: "Jollof and Fried Rice Mix",
       description: "Description for Product 3",
       price: "3000.00",
