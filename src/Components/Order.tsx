@@ -1,10 +1,11 @@
 import { GrPrevious } from "react-icons/gr";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 import { useCart } from "../Context/CartContext";
 
 const Order = () => {
   const { cart, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate(); // 2. Initialize navigate
 
-  // Set delivery fee amount (e.g., ₦2,500)
   const DELIVERY_FEE = 2500;
 
   const subtotal = cart.reduce((acc, item) => {
@@ -12,13 +13,17 @@ const Order = () => {
     return acc + priceNumber * item.quantity;
   }, 0);
 
-  // Calculate final total including delivery fee
   const total = subtotal + DELIVERY_FEE;
+
+  // Function to handle going back
+  const handleBack = () => navigate(-1);
 
   if (cart.length === 0) {
     return (
       <section className="max-w-4xl mx-auto p-6 md:p-10 text-center py-20">
-        <GrPrevious className="size-6 mb-6 text-gray-500" />
+        <button onClick={handleBack} className="block mb-6">
+          <GrPrevious className="size-6 text-gray-500 cursor-pointer hover:text-gray-800 transition-colors" />
+        </button>
         <div className="text-6xl mb-4">🛒</div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
           Your cart is empty
@@ -32,13 +37,16 @@ const Order = () => {
 
   return (
     <section className="max-w-6xl mx-auto p-4 md:p-10">
-      <GrPrevious className="size-6 mb-6 text-gray-500" />
+      {/* 3. Wrap the icon in a button with the navigate function */}
+      <button onClick={handleBack} className="block mb-6">
+        <GrPrevious className="size-6 text-gray-500 cursor-pointer hover:text-gray-800 transition-colors" />
+      </button>
+
       <h1 className="text-3xl font-extrabold text-gray-900 mb-8">
         Complete Your Order
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        {/* Cart Items List */}
         <div className="lg:col-span-2 space-y-4">
           <div className="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-gray-200 text-sm font-semibold text-gray-500 px-4">
             <div className="col-span-6">Product</div>
@@ -56,7 +64,6 @@ const Order = () => {
                   key={index}
                   className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center p-4 hover:bg-gray-50 transition-colors"
                 >
-                  {/* Product Details */}
                   <div className="col-span-12 md:col-span-6 flex items-center gap-4">
                     <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center font-bold text-gray-400 overflow-hidden shrink-0 border border-gray-200">
                       {item.image ? (
@@ -79,17 +86,14 @@ const Order = () => {
                     </div>
                   </div>
 
-                  {/* Quantity (Desktop) */}
                   <div className="hidden md:block col-span-2 text-center font-medium text-gray-700">
                     {item.quantity}
                   </div>
 
-                  {/* Price */}
                   <div className="col-span-9 md:col-span-3 text-left md:text-right font-semibold text-gray-900 text-lg md:text-base">
                     ₦{itemPrice.toLocaleString()}
                   </div>
 
-                  {/* Actions */}
                   <div className="col-span-3 md:col-span-1 text-right">
                     <button
                       onClick={() => removeFromCart(index)}
@@ -113,7 +117,6 @@ const Order = () => {
           </button>
         </div>
 
-        {/* Order Summary Sidebar */}
         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 shadow-sm sticky top-6">
           <h2 className="text-xl font-bold text-gray-900 mb-6">
             Order Summary

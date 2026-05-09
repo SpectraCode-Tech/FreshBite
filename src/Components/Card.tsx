@@ -16,7 +16,7 @@ const Card = ({
   description,
   price,
   category,
-  addToCart, // ✅ FIX: you forgot this
+  addToCart,
 }: CardProps) => {
   const [quantity, setQuantity] = useState(1);
 

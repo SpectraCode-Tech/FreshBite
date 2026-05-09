@@ -27,6 +27,14 @@ import fufu from "../assets/fufu.jpeg";
 import semo from "../assets/semo.jpeg";
 import amala from "../assets/amala.jpeg";
 
+interface Products {
+  image: string;
+  name: string;
+  description: string;
+  price: string;
+  category: string;
+}
+
 export const Products = [
   {
     image: `${jollof}`,
