@@ -37,7 +37,7 @@ const About = () => {
             home, we’re committed to delivering quality, flavor, and excellent
             service in every experience.
           </p>
-          <Link to="/About">
+          <Link to="/about">
             <button className="mt-8 bg-orange-600 hover:bg-orange-700 text-white px-7 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
               Learn More
             </button>

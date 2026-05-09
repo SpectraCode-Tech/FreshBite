@@ -29,7 +29,7 @@ const Menu = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleCategorySelect = (cat) => {
+  const handleCategorySelect = (cat: string) => {
     setActiveCategory(cat);
     setIsDropdownOpen(false);
   };
