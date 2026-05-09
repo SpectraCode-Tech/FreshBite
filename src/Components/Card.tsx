@@ -56,17 +56,17 @@ const Card = ({
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className=" text-lg sm:text-2xl font-bold text-gray-900">{name}</h3>
-
-            <p className="text-gray-500 text-sm mt-2 leading-6">
-              {description}
-            </p>
+            <h3 className=" text-lg sm:text-2xl font-bold text-gray-900">
+              {name}
+            </h3>
           </div>
 
           <p className="text-xl font-bold text-orange-600 whitespace-nowrap">
             {price}
           </p>
         </div>
+        
+        <p className="text-gray-500 text-sm mt-2 leading-6">{description}</p>
 
         <div className="grid grid-cols-2 mt-6 items-center grid-rows-1 gap-5">
           <span>

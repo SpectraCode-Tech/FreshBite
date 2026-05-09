@@ -1,107 +1,48 @@
+import { useState } from "react";
 import Card from "../Components/Card";
 import Navbar from "../Components/Navbar";
 import Cart from "../Components/cart";
 import { useCart } from "../Context/CartContext";
-import jollof from "../assets/jollof.jpeg";
-import jfRice from "../assets/j&fRice.jpeg";
-import friedRice from "../assets/friedrice.jpeg";
-import plantain from "../assets/plantain.jpeg";
-import turkey from "../assets/Turkey.jpeg";
-import chicken from "../assets/chicken.jpeg";
-import fish from "../assets/fish.jpeg";
-import noodles from "../assets/noodles.jpeg";
-import boiledEgg from "../assets/egg.jpeg";
-import spag from "../assets/spag.jpeg";
-import pepsi from "../assets/pepsi.jpeg";
+import { Products } from "../Data/Products";
 
 const Menu = () => {
+  const { addToCart } = useCart();
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const Products =[
-    {
-      image:`${jollof}`,
-      name: "Smoky Jollof Rice",
-      description: "Description for Product 1",
-      price: "2500.00",
-      category: "Main Course"
-    },
-    {
-      image: `${friedRice}`,
-      name: "Carribean Fried Rice",
-      description: "Description for Product 2",
-      price: "29.99",
-      category: "Main Course"
-    },
-    {
-      image: `${jfRice}`,
-      name: "Jollof and Fried Rice Mix",
-      description: "Description for Product 3",
-      price: "3000.00",
-      category: "Main Course"
-    },
-    {
-      image: `${noodles}`,
-      name: "Stir Fry Noodles",
-      description: "Description for Product 2",
-      price: "3000.00",
-      category: "Main Course"
-    },
-    {
-      image: `${spag}`,
-      name: "Stir Fry Spaghetti",
-      description: "Description for Product 2",
-      price: "3000.00",
-      category: "Main Course"
-    },
-    {
-      image: `${fish}`,
-      name: "Peppered Fish",
-      description: "Description for Product 2",
-      price: "29.99",
-      category: "Protein"
-    },
-    {
-      image: `${turkey}`,
-      name: "Peppered Turkey",
-      description: "Description for Product 2",
-      price: "4000.00",
-      category: "Protein"
-    },
-    {
-      image:`${chicken}`,
-      name: "Peppered Chicken",
-      description: "Description for Product 2",
-      price: "3000.00",
-      category: "Protein"
-    },
-    {
-      image:`${boiledEgg}`,
-      name: "Boiled egg",
-      description: "Description for Product 2",
-      price: "300.00",
-      category: "Protein"
-    },
-    {
-      image:`${plantain}`,
-      name: "Fried Plantain",
-      description: "One portion is four pieces",
-      price: "400.00",
-      category: "Side"
-    },
-    {
-      image:`${pepsi}`,
-      name: "Bottled Pepsi Cola",
-      description: "Description for Product 2",
-      price: "600.00",
-      category: "Beverage"
-    },
+  const categories = [
+    "All",
+    ...Array.from(new Set(Products.map((p) => p.category))),
   ];
-    const { addToCart } = useCart();
+
+  const filtered =
+    activeCategory === "All"
+      ? Products
+      : Products.filter((p) => p.category === activeCategory);
+
   return (
     <>
       <Navbar />
       <Cart />
+
+      {/* Category Filter */}
+      <div className="px-10 pt-6 flex flex-wrap gap-3">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActiveCategory(cat)}
+            className={`px-4 py-2 cursor-pointer rounded-full text-sm font-medium border transition-colors duration-200 ${
+              activeCategory === cat
+                ? "bg-black text-white border-black"
+                : "bg-white text-gray-600 border-gray-300 hover:border-black hover:text-black"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
-        {Products.map((product, index) => (
+        {filtered.map((product, index) => (
           <Card
             key={index}
             image={product.image}
@@ -115,6 +56,6 @@ const Menu = () => {
       </div>
     </>
   );
-}
+};
 
-export default Menu
+export default Menu;

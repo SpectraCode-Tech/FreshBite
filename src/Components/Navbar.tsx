@@ -21,21 +21,21 @@ const Navbar = () => {
         </div>
         <ul className="gap-4 items-center ml-4 hidden md:flex">
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <Link to="/" className="hover:text-gray-300 nav-btn">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" className="hover:text-gray-300  ">
+            <Link to="/about" className="hover:text-gray-300 nav-btn">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contact" className="hover:text-gray-300">
+            <Link to="/contact" className="hover:text-gray-300 nav-btn">
               Contact
-            </a>
+            </Link>
           </li>
-          <li className="hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
+          <li className="hover:text-gray-300 cursor-pointer rounded-full hover:bg-orange-700 bg-orange-600 py-2 px-7 transition-all ease-in-out duration-300">
             <Link to="/menu" className="hover:text-gray-300">
               Our Menu
             </Link>
@@ -58,22 +58,22 @@ const Navbar = () => {
       >
         <ul className="flex flex-col gap-2 space-y-5 items-center justify-center h-4/5 text-2xl">
           <li>
-            <a href="#" className="hover:text-gray-300">
+            <Link to="/" className="hover:text-gray-300">
               Home
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#about" className="hover:text-gray-300">
+            <Link to="/about" className="hover:text-gray-300">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contact" className="hover:text-gray-300">
+            <Link to="/contact" className="hover:text-gray-300">
               Contact
-            </a>
+            </Link>
           </li>
-          <li className="fixed text-sm bottom-3 self-start hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
+          <li className="text-sm self-center hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
             <Link to="/menu" className="hover:text-gray-300">
               Our Menu
             </Link>
