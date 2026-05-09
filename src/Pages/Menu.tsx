@@ -35,7 +35,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <section className="">
       <Navbar />
       <Cart />
 
@@ -182,7 +182,7 @@ const Menu = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -36,53 +36,80 @@ const FAQ = () => {
   };
 
   return (
-    <section className="p-10 bg-orange-600">
-      <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-black">
-          Frequently Asked Questions
-        </h2>
+    // Responsive padding: py-12 on mobile, py-20 on desktop
+    <section className="py-12 md:py-20 bg-slate-50">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-gray-600">
+            Everything you need to know about FreshBite.
+          </p>
+        </div>
 
-        <div className="space-y-4">
-          {faqData.map((item, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm"
-            >
-              <button
-                className="w-full flex justify-between items-center p-5 text-left font-medium cursor-pointer text-gray-700 hover:bg-gray-50 transition-colors"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span>{item.question}</span>
-                <svg
-                  className={`w-5 h-5 text-orange-500 transition-transform duration-300 ${
-                    activeIndex === index ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
+        <div className="space-y-3">
+          {faqData.map((item, index) => {
+            const isOpen = activeIndex === index;
+            return (
               <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                  activeIndex === index
-                    ? "max-h-40 opacity-100"
-                    : "max-h-0 opacity-0"
+                key={index}
+                className={`group border rounded-xl transition-all duration-300 ${
+                  isOpen
+                    ? "border-orange-500 bg-white shadow-md"
+                    : "border-gray-200 bg-white hover:border-orange-300 hover:shadow-sm"
                 }`}
               >
-                <p className="p-5 text-gray-600 border-t border-gray-100">
-                  {item.answer}
-                </p>
+                <button
+                  className="w-full flex justify-between cursor-pointer items-center p-5 text-left focus:outline-none"
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={isOpen}
+                >
+                  <span
+                    className={`font-semibold text-lg transition-colors ${
+                      isOpen ? "text-orange-600" : "text-gray-800"
+                    }`}
+                  >
+                    {item.question}
+                  </span>
+
+                  {/* Enhanced Icon: Circular background for the arrow */}
+                  <div
+                    className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+                      isOpen
+                        ? "bg-orange-500 text-white rotate-180"
+                        : "bg-gray-100 text-gray-500"
+                    }`}
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </button>
+
+                <div
+                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? "max-h-50 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="p-5 pt-0 text-gray-600 leading-relaxed">
+                    <div className="w-full h-px bg-gray-100 mb-4" />
+                    {item.answer}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
