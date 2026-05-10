@@ -1,5 +1,5 @@
 import Navbar from "../Components/Navbar";
-import bgImage from "../Assets/about.jpeg";
+import bgImage from "../Assets/about-us.jpeg";
 
 const Contact = () => {
   return (
