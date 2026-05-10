@@ -14,7 +14,12 @@ const Cart = () => {
     if (savedInfo) {
       navigate("/order-now");
     } else {
+<<<<<<< HEAD
       navigate("/delivery");
+=======
+      // 3. If no info found, go to the info form
+      navigate("/delivery"); // Ensure this route matches your App.js/main.js
+>>>>>>> efe9ecee65918cc2027c5f2b46253dbe75694eca
     }
   };
 

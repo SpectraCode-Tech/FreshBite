@@ -6,7 +6,11 @@ import Menu from "./Pages/Menu";
 import Order from "./Pages/Order";
 import Footer from './Components/Footer';
 import Contact from "./Pages/Contact";
+<<<<<<< HEAD
 import InfoForm from "./Components/infoForm";
+=======
+import InfoForm from "../Components/infoForm";
+>>>>>>> efe9ecee65918cc2027c5f2b46253dbe75694eca
 
 const App = () => {
   return (
