@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="mt-6">
-              <Link to="/menu" className="bg-black cursor-pointer hover:bg-black/80 text-white font-bold py-2 px-7 rounded-full transition-all duration-300">
+              <Link to="/menu" className="bg-black cursor-pointer hover:bg-black/80 text-white font-bold py-3 px-7 rounded-full transition-all duration-300">
                 Visit Menu
               </Link>
             </div>

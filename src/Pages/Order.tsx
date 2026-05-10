@@ -1,5 +1,5 @@
 import { GrPrevious } from "react-icons/gr";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 
 const Order = () => {
@@ -8,13 +8,54 @@ const Order = () => {
 
   const DELIVERY_FEE = 2500;
 
+  // Calculate Subtotal
   const subtotal = cart.reduce((acc, item) => {
     const priceNumber = Number(item.price.replace(/[^0-9.]/g, ""));
     return acc + priceNumber * item.quantity;
   }, 0);
 
   const total = subtotal + DELIVERY_FEE;
-  const handleBack = () => navigate(-1);
+
+  const handleBack = () => navigate("/menu");
+
+  // Get Saved User Info from local storage
+  const savedInfo = localStorage.getItem("userContactInfo");
+  const userInfo = savedInfo ? JSON.parse(savedInfo) : null;
+
+  // WhatsApp Order Logic
+  const handleWhatsAppOrder = () => {
+    const phoneNumber = "2349077656721"; // Replace with your business WhatsApp number
+
+    // Format the items list for the message
+    const itemsList = cart
+      .map(
+        (item) =>
+          `• ${item.name} (x${item.quantity}) - ₦${(
+            Number(item.price.replace(/[^0-9.]/g, "")) * item.quantity
+          ).toLocaleString()}`,
+      )
+      .join("\n");
+
+    // Prepare Delivery Details string
+    const deliveryDetails = userInfo
+      ? `\n\n*Delivery Details:*\n📍 Name: ${userInfo.firstName} ${userInfo.lastName}\n🏠 Address: ${userInfo.address}\n📞 Phone: ${userInfo.phone}`
+      : "\n\n(No delivery info provided)";
+
+    // Construct the full message
+    const message = encodeURIComponent(
+      `*New Order from FreshBite*\n` +
+        `--------------------------\n` +
+        `${itemsList}\n` +
+        `--------------------------\n` +
+        `*Subtotal:* ₦${subtotal.toLocaleString()}\n` +
+        `*Delivery:* ₦${DELIVERY_FEE.toLocaleString()}\n` +
+        `*Total:* ₦${total.toLocaleString()}` +
+        `${deliveryDetails}`,
+    );
+
+    // Open WhatsApp in a new tab
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
 
   if (cart.length === 0) {
     return (
@@ -44,6 +85,7 @@ const Order = () => {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        {/* Cart Items Section */}
         <div className="lg:col-span-2 space-y-4">
           <div className="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-gray-200 text-sm font-semibold text-gray-500 px-4">
             <div className="col-span-6">Product</div>
@@ -114,6 +156,7 @@ const Order = () => {
           </button>
         </div>
 
+        {/* Summary & Checkout Section */}
         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 shadow-sm sticky top-6">
           <h2 className="text-xl font-bold text-gray-900 mb-6">
             Order Summary
@@ -139,9 +182,17 @@ const Order = () => {
             </span>
           </div>
 
-          <button className="w-full bg-primary hover:bg-orange-700 cursor-pointer text-white font-semibold py-4 px-6 rounded-full transition-all shadow-md active:scale-[0.98]">
-            Proceed to Purchase
+          {/* WhatsApp Trigger Button */}
+          <button
+            onClick={handleWhatsAppOrder}
+            className="w-full bg-orange-600 hover:bg-orange-700 cursor-pointer text-white font-semibold py-4 px-6 rounded-full transition-all shadow-md active:scale-[0.98]"
+          >
+            Order via WhatsApp
           </button>
+
+          <p className="text-[10px] text-gray-400 mt-4 text-center">
+            Clicking will open WhatsApp to share your order with us.
+          </p>
         </div>
       </div>
     </section>
