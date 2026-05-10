@@ -12,15 +12,12 @@ const InfoForm = () => {
     phone: "",
   });
 
-  // 2. Handle input changes - Using React.ChangeEvent
-  // We use HTMLInputElement because these are standard text inputs
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 3. Handle Form Submission - Using React.FormEvent
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     localStorage.setItem("userContactInfo", JSON.stringify(formData));
@@ -29,7 +26,6 @@ const InfoForm = () => {
 
   return (
     <section className="min-h-screen bg-slate-50 py-12 px-6 flex items-center justify-center">
-      {/* ... rest of your JSX remains exactly the same ... */}
       <div className="max-w-md w-full bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/60 p-8 md:p-10 border border-gray-100">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-black text-gray-900">Delivery Info</h2>
