@@ -1,5 +1,3 @@
-import React from "react";
-
 interface TestimonialItem {
   id: number;
   name: string;
@@ -96,7 +94,7 @@ const Testimonials = () => {
                 ))}
               </div>
 
-              <p className="text-gray-700 leading-relaxed mb-8 flex-grow">
+              <p className="text-gray-700 leading-relaxed mb-8 grow">
                 "{item.text}"
               </p>
 
