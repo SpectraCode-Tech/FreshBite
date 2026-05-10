@@ -1,10 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react"; // Added React import for types
 import { useNavigate } from "react-router-dom";
 
 const InfoForm = () => {
   const navigate = useNavigate();
 
-  // 1. Initialize state for the form fields
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -13,25 +12,24 @@ const InfoForm = () => {
     phone: "",
   });
 
-  // 2. Handle input changes
-  const handleChange = (e) => {
+  // 2. Handle input changes - Using React.ChangeEvent
+  // We use HTMLInputElement because these are standard text inputs
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 3. Handle Form Submission
-  const handleSubmit = (e) => {
+  // 3. Handle Form Submission - Using React.FormEvent
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Save to local storage
     localStorage.setItem("userContactInfo", JSON.stringify(formData));
-
-    // Redirect to the order page
     navigate("/order-now");
   };
 
   return (
     <section className="min-h-screen bg-slate-50 py-12 px-6 flex items-center justify-center">
+      {/* ... rest of your JSX remains exactly the same ... */}
       <div className="max-w-md w-full bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/60 p-8 md:p-10 border border-gray-100">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-black text-gray-900">Delivery Info</h2>
