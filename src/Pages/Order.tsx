@@ -1,5 +1,5 @@
 import { GrPrevious } from "react-icons/gr";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Added Link
 import { useCart } from "../Context/CartContext";
 
 const Order = () => {
@@ -8,7 +8,6 @@ const Order = () => {
 
   const DELIVERY_FEE = 2500;
 
-  // Calculate Subtotal
   const subtotal = cart.reduce((acc, item) => {
     const priceNumber = Number(item.price.replace(/[^0-9.]/g, ""));
     return acc + priceNumber * item.quantity;
@@ -18,15 +17,12 @@ const Order = () => {
 
   const handleBack = () => navigate("/menu");
 
-  // Get Saved User Info from local storage
   const savedInfo = localStorage.getItem("userContactInfo");
   const userInfo = savedInfo ? JSON.parse(savedInfo) : null;
 
-  // WhatsApp Order Logic
   const handleWhatsAppOrder = () => {
-    const phoneNumber = "2349077656721"; // Replace with your business WhatsApp number
+    const phoneNumber = "2349077656721";
 
-    // Format the items list for the message
     const itemsList = cart
       .map(
         (item) =>
@@ -36,12 +32,10 @@ const Order = () => {
       )
       .join("\n");
 
-    // Prepare Delivery Details string
     const deliveryDetails = userInfo
       ? `\n\n*Delivery Details:*\n📍 Name: ${userInfo.firstName} ${userInfo.lastName}\n🏠 Address: ${userInfo.address}\n📞 Phone: ${userInfo.phone}`
       : "\n\n(No delivery info provided)";
 
-    // Construct the full message
     const message = encodeURIComponent(
       `*New Order from FreshBite*\n` +
         `--------------------------\n` +
@@ -53,7 +47,6 @@ const Order = () => {
         `${deliveryDetails}`,
     );
 
-    // Open WhatsApp in a new tab
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
@@ -85,7 +78,6 @@ const Order = () => {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        {/* Cart Items Section */}
         <div className="lg:col-span-2 space-y-4">
           <div className="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-gray-200 text-sm font-semibold text-gray-500 px-4">
             <div className="col-span-6">Product</div>
@@ -156,11 +148,35 @@ const Order = () => {
           </button>
         </div>
 
-        {/* Summary & Checkout Section */}
         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 shadow-sm sticky top-6">
           <h2 className="text-xl font-bold text-gray-900 mb-6">
             Order Summary
           </h2>
+
+          <div className="mb-6 p-4 bg-white rounded-xl border border-gray-100">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xs font-bold uppercase text-gray-400 tracking-wider">
+                Deliver To
+              </h3>
+              <Link
+                to="/delivery"
+                className="text-xs font-bold text-orange-600 hover:underline"
+              >
+                EDIT
+              </Link>
+            </div>
+            {userInfo ? (
+              <div className="text-sm text-gray-700">
+                <p className="font-bold">
+                  {userInfo.firstName} {userInfo.lastName}
+                </p>
+                <p className="text-gray-500 truncate">{userInfo.address}</p>
+                <p className="text-gray-500">{userInfo.phone}</p>
+              </div>
+            ) : (
+              <p className="text-sm text-red-500 italic">No address found</p>
+            )}
+          </div>
 
           <div className="space-y-4 pb-6 border-b border-gray-200">
             <div className="flex justify-between text-gray-600">
@@ -182,7 +198,6 @@ const Order = () => {
             </span>
           </div>
 
-          {/* WhatsApp Trigger Button */}
           <button
             onClick={handleWhatsAppOrder}
             className="w-full bg-orange-600 hover:bg-orange-700 cursor-pointer text-white font-semibold py-4 px-6 rounded-full transition-all shadow-md active:scale-[0.98]"

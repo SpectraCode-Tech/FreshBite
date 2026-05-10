@@ -48,7 +48,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="tel:+2348000000000"
+                  href="tel:+2349077656721"
                   className="flex items-center gap-6 p-4 rounded-2xl bg-white/5 hover:bg-white/20 border border-white/10 transition-all group"
                 >
                   <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-orange-600/40">
