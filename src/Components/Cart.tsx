@@ -17,7 +17,7 @@ const Cart = () => {
       navigate("/order-now");
     } else {
       // 3. If no info found, go to the info form
-      navigate("/info-form"); // Ensure this route matches your App.js/main.js
+      navigate("/delivery"); // Ensure this route matches your App.js/main.js
     }
   };
 
