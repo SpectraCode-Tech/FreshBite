@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import aboutImg from "../assets/about-us.jpeg";
+import banner from "../assets/banner.jpeg";
 
 const AboutUs = () => {
   return (
@@ -8,7 +9,7 @@ const AboutUs = () => {
       className="relative py-20 bg-orange-50 bg-cover bg-center"
       style={{ 
         clipPath: "polygon(0 0, 100% 0, 100% 85%, 0% 100%)",
-        backgroundImage: `url(${aboutImg})` 
+        backgroundImage: `url(${banner})` 
       }}
     >
       <div className="absolute inset-0 bg-black/60 pointer-events-none" />
