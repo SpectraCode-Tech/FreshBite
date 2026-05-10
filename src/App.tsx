@@ -4,6 +4,7 @@ import AboutUs from "./Pages/AboutUs";
 import NotFound from "./Pages/NotFound";
 import Menu from "./Pages/Menu";
 import Order from "./Components/Order";
+import Footer from './Components/Footer';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/menu" element={<Menu />} />
           <Route path="/order-now" element={<Order />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
 
 

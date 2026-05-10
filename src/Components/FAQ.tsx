@@ -75,7 +75,7 @@ const FAQ = () => {
 
                   {/* Enhanced Icon: Circular background for the arrow */}
                   <div
-                    className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+                    className={`flex items-center justify-center px-3 w-8 h-8 rounded-full transition-all duration-300 ${
                       isOpen
                         ? "bg-orange-500 text-white rotate-180"
                         : "bg-gray-100 text-gray-500"
