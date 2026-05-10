@@ -136,9 +136,9 @@ const Menu = () => {
 
       <div className="p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
         {filtered.length > 0 ? (
-          filtered.map((product, index) => (
+          filtered.map((product) => (
             <Card
-              key={index}
+              key={product.name}
               image={product.image}
               name={product.name}
               description={product.description}
