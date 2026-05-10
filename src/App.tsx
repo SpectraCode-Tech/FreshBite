@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import AboutUs from "./Pages/AboutUs";
 import NotFound from "./Pages/NotFound";
 import Menu from "./Pages/Menu";
-import Order from "./Components/Order";
+import Order from "./Pages/Order";
 import Footer from './Components/Footer';
 import Contact from "./Pages/Contact";
 
