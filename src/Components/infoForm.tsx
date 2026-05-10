@@ -35,7 +35,7 @@ const InfoForm = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col gap-4">
             <div className="space-y-1">
               <label className="text-xs font-bold text-gray-400 uppercase ml-1">
                 First Name
@@ -113,7 +113,7 @@ const InfoForm = () => {
 
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white font-bold py-4 rounded-2xl mt-4 hover:bg-orange-600 transition-all active:scale-[0.98] shadow-lg shadow-gray-200"
+            className="w-full bg-gray-900 text-white font-bold py-4 rounded-full mt-4 cursor-pointer hover:bg-orange-600 transition-all ease-in-out duration-300 active:scale-[0.98] shadow-lg shadow-gray-200"
           >
             Save & Continue
           </button>
