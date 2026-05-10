@@ -6,7 +6,7 @@ import Menu from "./Pages/Menu";
 import Order from "./Pages/Order";
 import Footer from './Components/Footer';
 import Contact from "./Pages/Contact";
-import infoForm from "Components/infoForm";
+import infoForm from "../Components/infoForm";
 
 const App = () => {
   return (
