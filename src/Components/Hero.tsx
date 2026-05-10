@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import slide1 from "../assets/slide1.jpeg";
 import slide2 from "../assets/slide2.jpeg";
 import slide3 from "../assets/slide3.jpeg";
+import { Link } from "react-router-dom";
 
 type Slide = {
   id: number;
@@ -79,14 +80,13 @@ const Hero: React.FC = () => {
             return (
               <>
                 {words.join(" ")}{" "}
-                <span className="text-orange-600">{lastWord}</span>
+                <span className="text-primary">{lastWord}</span>
               </>
             );
           };
 
   return (
     <div className="relative w-full h-screen sm:h-[85svh] overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -99,8 +99,6 @@ const Hero: React.FC = () => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-
-          {/* Arrows */}
           <button
             onClick={prevSlide}
             className="arrow-btn right-20 top-10 sm:left-5 sm:top-1/2"
@@ -115,7 +113,6 @@ const Hero: React.FC = () => {
             ›
           </button>
 
-          {/* Overlay */}
           <div className="absolute inset-0 bg-linear-to-br from-black/60 to-orange-600/40 flex flex-col justify-center items-center text-center text-white px-6">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               {renderTitle(slide.title)}
@@ -126,15 +123,14 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="mt-6">
-              <button className="bg-black cursor-pointer hover:bg-black/80 text-white font-bold py-2 px-7 rounded-full transition-all duration-300">
+              <Link to="/menu" className="bg-black cursor-pointer hover:bg-black/80 text-white font-bold py-2 px-7 rounded-full transition-all duration-300">
                 Visit Menu
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       ))}
 
-      {/* Progress Lines */}
       <div className="absolute bottom-10 left-1/2 z-100 -translate-x-1/2 flex gap-3 w-[80%] max-w-xs">
         {slides.map((_, index) => (
           <div

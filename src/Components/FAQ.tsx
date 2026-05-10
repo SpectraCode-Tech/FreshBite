@@ -36,7 +36,6 @@ const FAQ = () => {
   };
 
   return (
-    // Responsive padding: py-12 on mobile, py-20 on desktop
     <section className="py-12 md:py-20 bg-slate-50">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-12">
@@ -67,13 +66,12 @@ const FAQ = () => {
                 >
                   <span
                     className={`font-semibold text-lg transition-colors ${
-                      isOpen ? "text-orange-600" : "text-gray-800"
+                      isOpen ? "text-primary" : "text-gray-800"
                     }`}
                   >
                     {item.question}
                   </span>
 
-                  {/* Enhanced Icon: Circular background for the arrow */}
                   <div
                     className={`flex items-center justify-center px-3 w-8 h-8 rounded-full transition-all duration-300 ${
                       isOpen

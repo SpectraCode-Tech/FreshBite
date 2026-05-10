@@ -4,8 +4,7 @@ const NotFound = () => {
   return (
     <main className="min-h-screen bg-white flex items-center justify-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
-        {/* Large Brand Icon or 404 Tag */}
-        <p className="text-6xl font-extrabold text-orange-600">404</p>
+        <p className="text-6xl font-extrabold text-primary">404</p>
 
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Even the Jollof is missing!
@@ -19,20 +18,19 @@ const NotFound = () => {
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link
             to="/"
-            className="rounded-full bg-orange-600 px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-orange-600 transition-all"
+            className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-orange-600 transition-all"
           >
             Back Home
           </Link>
 
           <Link
             to="/contact"
-            className="text-sm font-semibold text-gray-900 hover:text-orange-600 transition-colors"
+            className="text-sm font-semibold text-gray-900 hover:text-primary transition-colors"
           >
             Contact Support <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
 
-        {/* Optional: Add a subtle decorative element */}
         <div className="mt-16 opacity-10">
           <p className="text-sm italic">Fresh Bite — No lumps, just vibes.</p>
         </div>

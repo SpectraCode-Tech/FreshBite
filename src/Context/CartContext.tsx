@@ -22,7 +22,7 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-const EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours in ms
+const EXPIRY_TIME = 24 * 60 * 60 * 1000;
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>(() => {

@@ -14,9 +14,11 @@ const Navbar = () => {
     <nav className="bg-black z-1000 text-white py-2 px-5 sticky top-0 shadow-md w-full">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
-          <img src={logo} className="size-18" alt="Logo" />
-          <h1 className="font-bold uppercase text-2xl tracking-widest">
-            Fresh<span>Bite</span>
+          <a href="/">
+            <img src={logo} className="size-18" alt="Logo cursor-pointer" />
+          </a>
+          <h1 className="font-bold uppercase text-2xl tracking-widest cursor-pointer">
+            <a href="/">Fresh<span>Bite</span></a>
           </h1>
         </div>
         <ul className="gap-4 items-center ml-4 hidden md:flex">
@@ -35,14 +37,13 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
-          <li className="hover:text-gray-300 cursor-pointer rounded-full hover:bg-orange-700 bg-orange-600 py-2 px-7 transition-all ease-in-out duration-300">
+          <li className="hover:text-gray-300 cursor-pointer rounded-full hover:bg-orange-700 bg-primary py-2 px-7 transition-all ease-in-out duration-300">
             <Link to="/menu" className="hover:text-gray-300">
               Our Menu
             </Link>
           </li>
         </ul>
 
-        {/* Mobile menu button */}
         <button className="md:hidden text-white" onClick={toggleMobileMenu}>
           {isMobileMenuOpen ? (
             <FiX className="size-6 active:transform active:rotate-180 duration-100" />
@@ -52,7 +53,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div
         className={`md:hidden fixed w-full left-0 bg-black text-white py-2 px-5 ${isMobileMenuOpen ? "h-full opacity-100" : "h-0 overflow-hidden opacity-0"} transition-all duration-300`}
       >
@@ -73,7 +73,7 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
-          <li className="text-sm self-center hover:text-gray-300 rounded-full bg-orange-600 py-2 px-7">
+          <li className="text-sm self-center hover:text-gray-300 rounded-full bg-primary py-2 px-7">
             <Link to="/menu" className="hover:text-gray-300">
               Our Menu
             </Link>

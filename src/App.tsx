@@ -5,17 +5,19 @@ import NotFound from "./Pages/NotFound";
 import Menu from "./Pages/Menu";
 import Order from "./Components/Order";
 import Footer from './Components/Footer';
+import Contact from "./Pages/Contact";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/order-now" element={<Order />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

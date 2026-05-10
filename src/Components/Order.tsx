@@ -1,10 +1,10 @@
 import { GrPrevious } from "react-icons/gr";
-import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import { useCart } from "../Context/CartContext";
 
 const Order = () => {
   const { cart, removeFromCart, clearCart } = useCart();
-  const navigate = useNavigate(); // 2. Initialize navigate
+  const navigate = useNavigate();
 
   const DELIVERY_FEE = 2500;
 
@@ -14,8 +14,6 @@ const Order = () => {
   }, 0);
 
   const total = subtotal + DELIVERY_FEE;
-
-  // Function to handle going back
   const handleBack = () => navigate(-1);
 
   if (cart.length === 0) {
@@ -37,7 +35,6 @@ const Order = () => {
 
   return (
     <section className="max-w-6xl mx-auto p-4 md:p-10">
-      {/* 3. Wrap the icon in a button with the navigate function */}
       <button onClick={handleBack} className="block mb-6">
         <GrPrevious className="size-6 text-gray-500 cursor-pointer hover:text-gray-800 transition-colors" />
       </button>
@@ -142,7 +139,7 @@ const Order = () => {
             </span>
           </div>
 
-          <button className="w-full bg-orange-600 hover:bg-orange-700 cursor-pointer text-white font-semibold py-4 px-6 rounded-full transition-all shadow-md active:scale-[0.98]">
+          <button className="w-full bg-primary hover:bg-orange-700 cursor-pointer text-white font-semibold py-4 px-6 rounded-full transition-all shadow-md active:scale-[0.98]">
             Proceed to Purchase
           </button>
         </div>

@@ -47,7 +47,7 @@ const Card = ({
         />
 
         {category && (
-          <span className="absolute top-4 left-4 bg-orange-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
+          <span className="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-4 py-1 rounded-full">
             {category}
           </span>
         )}
@@ -61,7 +61,7 @@ const Card = ({
             </h3>
           </div>
 
-          <p className="text-xl font-bold text-orange-600 whitespace-nowrap">
+          <p className="text-xl font-bold text-primary whitespace-nowrap">
             {price}
           </p>
         </div>
@@ -72,7 +72,7 @@ const Card = ({
           <span>
             <button
               onClick={handleAddToCart}
-              className="w-full text-xs sm:text-sm bg-orange-600 hover:bg-orange-700 active:bg-orange-800 hover:text-gray-300 text-white py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
+              className="w-full text-xs sm:text-sm bg-primary hover:bg-orange-700 active:bg-orange-800 hover:text-gray-300 text-white py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
             >
               Order Now
             </button>

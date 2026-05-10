@@ -1,25 +1,25 @@
 import { useState } from "react";
 import Card from "../Components/Card";
 import Navbar from "../Components/Navbar";
-import Cart from "../Components/cart";
+import Cart from "../Components/Cart";
 import { useCart } from "../Context/CartContext";
 import { Products } from "../Data/Products";
 
 const Menu = () => {
   const { addToCart } = useCart();
 
-  // States
+  
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Generate unique categories
+  
   const categories = [
     "All",
     ...Array.from(new Set(Products.map((p) => p.category))),
   ];
 
-  // Filtering Logic
+  
   const filtered = Products.filter((product) => {
     const matchesCategory =
       activeCategory === "All" || product.category === activeCategory;
@@ -39,9 +39,7 @@ const Menu = () => {
       <Navbar />
       <Cart />
 
-      {/* Filter & Search Header */}
-      <div className="px-6 md:px-10 pt-8 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-6">
-        {/* Stylish Custom Dropdown */}
+      <div className="px-6 md:px-10 pt-8 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-6">        
         <div className="relative w-full md:w-72">
           <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-2 mb-1 block">
             Category
@@ -68,10 +66,10 @@ const Menu = () => {
             </svg>
           </button>
 
-          {/* Dropdown Menu */}
+          
           {isDropdownOpen && (
             <>
-              {/* Invisible backdrop to close dropdown when clicking outside */}
+              
               <div
                 className="fixed inset-0 z-10"
                 onClick={() => setIsDropdownOpen(false)}
@@ -99,7 +97,7 @@ const Menu = () => {
           )}
         </div>
 
-        {/* Search Bar */}
+        
         <div className="w-full md:w-80">
           <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-2 mb-1 block">
             Search
@@ -125,20 +123,18 @@ const Menu = () => {
               placeholder="Jollof, Chicken, Drinks..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-5 py-3.5 bg-white border border-gray-200 rounded-2xl text-sm shadow-sm focus:ring-2 focus:ring-black focus:border-black outline-none transition-all"
+              className="w-full pl-12 pr-5 py-3.5 bg-white border border-gray-200 rounded-full text-sm shadow-sm focus:ring-2 focus:ring-black focus:border-black outline-none transition-all"
             />
           </div>
         </div>
       </div>
 
-      {/* Results Count */}
       <div className="px-10 mb-2">
         <p className="text-sm text-gray-500">
           Showing {filtered.length} {filtered.length === 1 ? "item" : "items"}
         </p>
       </div>
 
-      {/* Product Grid */}
       <div className="p-6 md:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
         {filtered.length > 0 ? (
           filtered.map((product, index) => (

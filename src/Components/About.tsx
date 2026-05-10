@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <section className="px-6 sm:px-10 py-20 max-w-7xl mx-auto">
-      {/* Heading */}
       <div className="mb-14">
-        <p className="text-orange-600 font-semibold uppercase tracking-widest mb-2">
+        <p className="text-primary font-semibold uppercase tracking-widest mb-2">
           About Us
         </p>
 
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-          About <span className="text-orange-600">FreshBite.</span>
+          About <span className="text-primary">FreshBite.</span>
         </h1>
       </div>
 
@@ -38,7 +37,7 @@ const About = () => {
             service in every experience.
           </p>
           <Link to="/about">
-            <button className="mt-8 bg-orange-600 hover:bg-orange-700 text-white px-7 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
+            <button className="mt-8 bg-primary hover:bg-orange-700 text-white px-7 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer">
               Learn More
             </button>
           </Link>

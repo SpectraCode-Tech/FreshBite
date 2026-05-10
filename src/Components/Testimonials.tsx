@@ -63,7 +63,7 @@ const Testimonials = () => {
     <section className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-orange-600 font-bold tracking-widest uppercase text-sm">
+          <span className="text-primary font-bold tracking-widest uppercase text-sm">
             Customer Stories
           </span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4">
@@ -111,7 +111,7 @@ const Testimonials = () => {
                   <p className="text-gray-900 font-bold text-base leading-tight">
                     {item.name}
                   </p>
-                  <p className="text-orange-600 text-xs font-semibold uppercase tracking-wider mt-1">
+                  <p className="text-primary text-xs font-semibold uppercase tracking-wider mt-1">
                     {item.role}
                   </p>
                 </div>
